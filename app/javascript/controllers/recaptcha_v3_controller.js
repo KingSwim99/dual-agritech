@@ -7,10 +7,17 @@ export default class extends Controller {
     const siteKey = document.querySelector('meta[name="recaptcha-site-key"]')?.content
     if (!siteKey || typeof grecaptcha === "undefined") return
 
-    // Re-trigger the badge after Turbo replaces the body on navigation.
+    // Re-trigger the badge and make it visible after Turbo navigation.
     grecaptcha.ready(() => {
       grecaptcha.execute(siteKey, { action: "pageview" }).then(() => {})
+      const badge = document.querySelector(".grecaptcha-badge")
+      if (badge) badge.style.visibility = "visible"
     })
+  }
+
+  disconnect() {
+    const badge = document.querySelector(".grecaptcha-badge")
+    if (badge) badge.style.visibility = "hidden"
   }
 
   submit(event) {
