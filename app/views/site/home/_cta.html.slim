@@ -1,0 +1,31 @@
+/ ─── CTA Section ─────────────────────────────────────────────────────────────
+section.cta-section
+  .container
+    .row.justify-content-center.text-center.mb-5
+      .col-12.col-lg-8.reveal
+        h2.cta-title Join Us in Transforming Agriculture Education and Training in the Philippines
+        p.cta-subtitle
+          | Your support helps us empower the next generation of agripreneur leaders and innovators. Together, we can create a sustainable future for agriculture and food security.
+
+    .row.g-3.justify-content-center.mb-5
+      - @cta_cards.each_with_index do |card, i|
+        .col-6.col-md-3.reveal data-reveal-delay="#{i * 120}"
+          .cta-info-card
+            .cta-info-icon
+              i class="bi #{card[:icon]}"
+            h6.cta-info-title = card[:title]
+            p.cta-info-text = card[:text]
+            - if card[:link_path]
+              = link_to card[:link_label], send(card[:link_path]), class: "btn btn-cta-outline"
+            - elsif card[:link_href]
+              = link_to card[:link_label], card[:link_href], class: "btn btn-cta-outline"
+
+    .row.justify-content-center
+      .col-12.col-lg-8.text-center.reveal
+        .cta-bottom-card
+          h4.cta-bottom-title Ready to Make an Impact?
+          p.cta-bottom-desc
+            | Whether you're a corporate sponsor, individual donor, or potential trainee, we invite you to be part of our mission to revolutionize Dual Agritech™ training in the Philippines.
+          .d-flex.gap-3.justify-content-center.flex-wrap
+            = link_to "Become a Sponsor", site_partners_path, class: "btn btn-cta-primary"
+            = link_to "Apply as a Trainee", site_apply_path, class: "btn btn-cta-secondary"

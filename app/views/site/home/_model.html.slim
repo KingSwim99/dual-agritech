@@ -1,0 +1,20 @@
+/ ─── Dual AgriTech Model Section ─────────────────────────────────────────────
+section.model-section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title The Dual Agritech™ Model
+      p.section-subtitle
+        | A theory-practice blend approach of education in partnership with practical stakeholders, enabling trainees for just-ready employment or agripreneurship.
+
+    .row.justify-content-center.align-items-center.g-4
+      - @model_steps.each_with_index do |step, i|
+        - if i == 1
+          .col-12.col-md-2.text-center.reveal
+            .model-arrow &#8594;
+        .col-12.col-md-5.reveal
+          .model-card.text-center
+            .model-icon
+              = icon(step[:icon], "model-icon-svg")
+            h5.model-card-title = step[:title]
+            p.model-card-desc = step[:desc]
+

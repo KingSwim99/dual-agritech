@@ -1,0 +1,31 @@
+/ ─── Testimonials Section ────────────────────────────────────────────────────
+section.testimonials-section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title What Our Community Says
+
+    .row.g-4
+      - @testimonials.each_with_index do |t, i|
+        .col-12.col-md-4.reveal data-reveal-delay="#{(i % 3) * 120}"
+          .testimonial-card
+            .testimonial-stars = "★" * t[:stars]
+            p.testimonial-text = "\u201C#{t[:quote]}\u201D"
+            .testimonial-author
+              .testimonial-avatar = t[:initials]
+              .testimonial-info
+                strong = t[:name]
+                span.testimonial-role = t[:role]
+                span.testimonial-location = t[:location]
+
+    / Impact Numbers
+    .impact-banner.mt-5.reveal
+      .text-center.mb-4
+        h4.impact-title Our Impact in Numbers
+      .row.justify-content-center.text-center.g-4
+        - @impact_stats.each_with_index do |stat, i|
+          .col-6.col-md-3.reveal data-reveal-delay="#{i * 120}"
+            .impact-stat
+              span.stat-number data-target="#{stat[:target]}" 0
+              span.stat-suffix = stat[:suffix]
+              p.stat-label = stat[:label]
+

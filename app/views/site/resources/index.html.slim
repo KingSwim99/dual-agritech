@@ -1,0 +1,40 @@
+- content_for :title, "Resources | Dual AgriTech™"
+
+div data-controller="scroll-reveal"
+
+  / ── Page Header ────────────────────────────────────────────────────────────
+  section.partners-header
+    .container.text-center
+      h1.partners-main-title.reveal Resources
+      p.partners-main-subtitle.reveal data-reveal-delay="100"
+        | Download brochures, agreements, and other documents from Dual AgriTech™.
+
+  / ── PDFs ───────────────────────────────────────────────────────────────────
+  section.partners-section
+    .container
+      h2.partners-section-title.reveal
+        i.bi.bi-file-earmark-pdf-fill.text-danger.me-2
+        | PDFs
+      .row.g-4
+        .col-12.col-sm-6.col-lg-4.reveal data-reveal-delay="80"
+          .card.h-100.shadow-sm
+            .card-body.d-flex.align-items-center.gap-3
+              i.bi.bi-file-earmark-pdf.fs-2.text-danger
+              div
+                p.fw-semibold.mb-1 PPAFI Brochure
+                = link_to "Download", site_download_brochure_path, class: "btn btn-sm btn-outline-pdf"
+
+  / ── Word Documents ──────────────────────────────────────────────────────────
+  section.partners-section.section-gray
+    .container
+      h2.partners-section-title.reveal
+        i.bi.bi-file-earmark-word-fill.icon-word.me-2
+        | Word Documents
+      .row.g-4
+        .col-12.col-sm-6.col-lg-4.reveal data-reveal-delay="80"
+          .card.h-100.shadow-sm
+            .card-body.d-flex.align-items-center.gap-3
+              i.bi.bi-file-earmark-word.icon-word.fs-2
+              div
+                p.fw-semibold.mb-1 MOA Signing between TESDA and PPAFI
+                = link_to "Download", site_download_moa_tesda_ppafi_path, class: "btn btn-sm btn-outline-word"

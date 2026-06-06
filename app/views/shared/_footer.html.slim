@@ -1,0 +1,102 @@
+/ ─── Footer ─────────────────────────────────────────────────────────────────
+footer.site-footer.mt-auto
+
+  / ── Main content ────────────────────────────────────────────────────────────
+  .container.py-5
+    .row.g-4
+
+      / Brand + address column
+      .col-12.col-md-4
+        = link_to root_path do
+          = image_tag "logos/DA-logo-banner.png", height: 55, alt: "Dual AgriTech", class: "mb-3"
+        p.footer-tagline
+          | Character is built through consistent effort, work discipline and perseverance
+            over time to help develop traits like reliability, patience and integrity.
+        p.footer-contact-item.mb-1
+          i.bi.bi-geo-alt-fill
+          | 120 Narra St., Purok 1-8
+          br
+          span.ms-3 Brgy. Dagatan, Lipa City, Batangas
+          br
+          span.ms-3 Philippines 4217
+        p.footer-contact-item.mb-1
+          i.bi.bi-telephone-fill
+          | +63 (945) 540-6194
+        p.footer-contact-item.mb-0
+          i.bi.bi-envelope-fill
+          | inquire.dualagritech@gmail.com
+
+      / Quick Links
+      .col-6.col-md-2
+        h6.footer-heading Quick Links
+        ul.footer-links
+          li = link_to "Gallery",  site_gallery_path,  class: "#{'active' if current_page?(site_gallery_path)}"
+          li = link_to "Partners", site_partners_path, class: "#{'active' if current_page?(site_partners_path)}"
+          li = link_to "Contact",  site_contact_path,  class: "#{'active' if current_page?(site_contact_path)}"
+
+      / Our Centers
+      .col-6.col-md-2
+        h6.footer-heading Our Centers
+        ul.footer-links
+          li = link_to "PPAFI", site_about_ppafi_path, class: "#{'active' if current_page?(site_about_ppafi_path)}"
+          li = link_to "DFFSI", site_about_dffsi_path, class: "#{'active' if current_page?(site_about_dffsi_path)}"
+          li = link_to "BFFSI", site_about_bffsi_path, class: "#{'active' if current_page?(site_about_bffsi_path)}"
+
+      / Resources
+      .col-6.col-md-2
+        h6.footer-heading Resources
+        ul.footer-links
+          li = link_to "Download Brochure", site_download_brochure_path
+          li = link_to "Resources", site_resources_path, class: "#{'active' if current_page?(site_resources_path)}"
+          li = link_to "Success Stories", site_coming_soon_path
+          li = link_to "News & Updates", site_coming_soon_path
+
+      / Follow Us
+      .col-6.col-md-2
+        h6.footer-heading Follow Us
+        .footer-social
+          a href="#" aria-label="Facebook"
+            i.bi.bi-facebook
+          a href="#" aria-label="YouTube"
+            i.bi.bi-youtube
+          a href="#" aria-label="Instagram"
+            i.bi.bi-instagram
+          a href="#" aria-label="LinkedIn"
+            i.bi.bi-linkedin
+
+  hr.footer-divider
+
+  / ── Educational Institutions ─────────────────────────────────────────────────
+  .footer-institutions
+    .container
+      p.institution-heading.text-center Our Educational Institutions
+      .row.justify-content-center.g-4
+        .col-4.col-md-3.col-lg-2.text-center
+          = link_to site_about_ppafi_path, class: "institution-link #{'active' if current_page?(site_about_ppafi_path)}" do
+            .institution-logo-wrap
+              = image_tag "logos/PPAFI-logo.png", class: "institution-logo", alt: "PPAFI"
+            p.institution-name
+              | Pampamilyang Paaralang
+              br
+              | Agrikultura Foundation, Inc.
+        .col-4.col-md-3.col-lg-2.text-center
+          = link_to site_about_dffsi_path, class: "institution-link #{'active' if current_page?(site_about_dffsi_path)}" do
+            .institution-logo-wrap
+              = image_tag "logos/DFFSI-logo.png", class: "institution-logo", alt: "DFFSI"
+            p.institution-name Dagatan Family Farm School Inc.
+        .col-4.col-md-3.col-lg-2.text-center
+          = link_to site_about_bffsi_path, class: "institution-link #{'active' if current_page?(site_about_bffsi_path)}" do
+            .institution-logo-wrap
+              = image_tag "logos/BFFSI-logo.png", class: "institution-logo", alt: "BFFSI"
+            p.institution-name Balete Family Farm School Inc.
+
+  / ── Copyright bar ────────────────────────────────────────────────────────────
+  .footer-bottom
+    .container
+      .row.align-items-center.text-center.text-md-start
+        .col-12.col-md-6.mb-1.mb-md-0
+          = "© #{Date.current.year} Dual Agritech™. All rights reserved."
+        .col-12.col-md-6.text-center.text-md-end.footer-policy-links
+          a href="#" Privacy Policy
+          a href="#" Terms of Service
+          a href="#" Cookie Policy

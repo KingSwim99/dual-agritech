@@ -1,0 +1,224 @@
+// ─── Gallery Page ──────────────────────────────────────────────────────────────
+
+body.gallery-open { overflow: hidden; }
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.gallery-header {
+  background: #f7faf7;
+  padding: 60px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid rgba($green-primary, 0.12);
+}
+
+.gallery-main-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: $green-primary;
+  margin-bottom: 0.5rem;
+}
+
+.gallery-main-subtitle {
+  font-size: clamp(1.05rem, 1.7vw, 1.3rem);
+  color: #5a6a5a;
+  max-width: 620px;
+  margin: 0 auto 1.75rem;
+}
+
+// ── Tab Bar ───────────────────────────────────────────────────────────────────
+.gallery-tab-bar {
+  display: inline-flex;
+  gap: 0.6rem;
+  background: rgba($green-primary, 0.08);
+  border-radius: 50px;
+  padding: 6px;
+}
+
+.gallery-tab-btn {
+  border: 2px solid transparent;
+  background: transparent;
+  border-radius: 50px;
+  padding: 0.45rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: $green-dark;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &.active {
+    background: $green-primary;
+    color: #fff;
+    border-color: $green-primary;
+  }
+
+  &:hover:not(.active) {
+    background: rgba($green-primary, 0.12);
+  }
+}
+
+// ── Panel & Section headings ──────────────────────────────────────────────────
+.gallery-panel {
+  padding: 60px 0;
+}
+
+.gallery-section-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(1.6rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 0.35rem;
+}
+
+.gallery-section-subtitle {
+  font-size: clamp(1rem, 1.5vw, 1.2rem);
+}
+
+// ── Category (DFFSI/BFFSI) ────────────────────────────────────────────────────
+.gallery-category {
+  margin-bottom: 2.5rem;
+}
+
+.gallery-category-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 0.85rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid rgba($green-primary, 0.2);
+}
+
+// ── Grid & Thumbnails ─────────────────────────────────────────────────────────
+.gallery-grid {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  gap: 10px;
+
+  @media (max-width: 991px) { grid-template-columns: repeat(4, 1fr); }
+  @media (max-width: 767px) { grid-template-columns: repeat(3, 1fr); }
+  @media (max-width: 479px) { grid-template-columns: repeat(2, 1fr); }
+}
+
+.gallery-thumb {
+  aspect-ratio: 1;
+  overflow: hidden;
+  border-radius: 8px;
+  cursor: pointer;
+  position: relative;
+
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.3s ease;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: rgba($green-dark, 0);
+    border-radius: 8px;
+    transition: background 0.2s ease;
+  }
+
+  &:hover img    { transform: scale(1.06); }
+  &:hover::after { background: rgba($green-dark, 0.18); }
+}
+
+// ── Fade-in animation (all gallery elements) ─────────────────────────────────
+.gallery-fade {
+  opacity: 0;
+  transform: translateY(14px);
+  transition: opacity 0.45s ease, transform 0.45s ease;
+
+  &.gallery-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.gallery-hidden { display: none !important; }
+
+.btn-gallery-more { min-width: 170px; }
+
+// ── Lightbox ──────────────────────────────────────────────────────────────────
+.gallery-lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.92);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+
+  &.active { display: flex; }
+}
+
+.gallery-lightbox-body {
+  max-width: 90vw;
+  max-height: 85vh;
+  text-align: center;
+}
+
+.gallery-lightbox-img {
+  max-width: 90vw;
+  max-height: 80vh;
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
+  margin: 0 auto;
+}
+
+.gallery-lightbox-caption {
+  color: rgba(255, 255, 255, 0.82);
+  font-size: 1rem;
+  margin-top: 0.75rem;
+  min-height: 1.5rem;
+}
+
+.gallery-lightbox-close {
+  position: fixed;
+  top: 20px;
+  right: 24px;
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.2rem;
+  transition: background 0.2s;
+
+  &:hover { background: rgba(255, 255, 255, 0.28); }
+}
+
+.gallery-lightbox-prev,
+.gallery-lightbox-next {
+  position: fixed;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.12);
+  border: none;
+  color: #fff;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 1.4rem;
+  transition: background 0.2s;
+
+  &:hover { background: rgba(255, 255, 255, 0.28); }
+}
+
+.gallery-lightbox-prev { left: 20px; }
+.gallery-lightbox-next { right: 20px; }

@@ -1,0 +1,12 @@
+New Donation Inquiry
+====================
+
+Full Name:        <%= @donation_inquiry.name %>
+Email:            <%= @donation_inquiry.email %>
+Contact Number:   <%= @donation_inquiry.contact_number %>
+Organization:     <%= @donation_inquiry.organization.presence || "—" %>
+Proof of Donation:<%= @donation_inquiry.document.attached? ? @donation_inquiry.document.filename : "No attachment" %>
+Submitted At:     <%= @donation_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %>
+
+Message:
+<%= @donation_inquiry.remarks %>

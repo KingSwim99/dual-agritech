@@ -1,0 +1,30 @@
+- content_for :title, "Gallery | Dual AgriTech™"
+
+div data-controller="gallery"
+
+  / ── Lightbox overlay ──────────────────────────────────────────────────────
+  .gallery-lightbox data-gallery-target="lightbox" data-action="click->gallery#backdropClick"
+    button.gallery-lightbox-close aria-label="Close" data-action="click->gallery#closeLightbox"
+      i.bi.bi-x-lg
+    button.gallery-lightbox-prev aria-label="Previous" data-action="click->gallery#prevImage"
+      i.bi.bi-chevron-left
+    button.gallery-lightbox-next aria-label="Next" data-action="click->gallery#nextImage"
+      i.bi.bi-chevron-right
+    .gallery-lightbox-body
+      img.gallery-lightbox-img data-gallery-target="lightboxImg" src="" alt=""
+      p.gallery-lightbox-caption data-gallery-target="lightboxCaption"
+
+  / ── Header & Tabs ─────────────────────────────────────────────────────────
+  section.gallery-header
+    .container.text-center
+      h1.gallery-main-title.gallery-fade Our Visual Story
+      p.gallery-main-subtitle.gallery-fade
+        | A look at the trainees, facilities, and communities supported by the Dual Agritech™ Centers.
+      .gallery-tab-bar.gallery-fade
+        button.gallery-tab-btn.active data-tab="ppafi" data-action="click->gallery#switchTab"
+          | PPAFI Gallery
+        button.gallery-tab-btn data-tab="dffsi" data-action="click->gallery#switchTab"
+          | DFFSI/BFFSI Gallery
+
+  = render "site/gallery/ppafi_gallery"
+  = render "site/gallery/dagatan_gallery"

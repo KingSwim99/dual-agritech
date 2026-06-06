@@ -1,0 +1,13 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>New Contact Inquiry</h2>
+    <table cellpadding="6" cellspacing="0" border="1" style="border-collapse:collapse;">
+      <tr><th align="left">Name</th><td><%= @contact_inquiry.name %></td></tr>
+      <tr><th align="left">Email</th><td><%= @contact_inquiry.email %></td></tr>
+      <tr><th align="left">Organization</th><td><%= @contact_inquiry.organization.presence || "—" %></td></tr>
+      <tr><th align="left">Message</th><td style="white-space:pre-wrap;"><%= @contact_inquiry.message %></td></tr>
+      <tr><th align="left">Submitted At</th><td><%= @contact_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %></td></tr>
+    </table>
+  </body>
+</html>

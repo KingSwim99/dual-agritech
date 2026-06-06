@@ -1,0 +1,40 @@
+- content_for :title, "Partners | Dual AgriTech™"
+
+div data-controller="scroll-reveal"
+
+  / ── Page Header ─────────────────────────────────────────────────────────────
+  section.partners-header
+    .container.text-center
+      h1.partners-main-title.reveal Our Valued Partners
+      p.partners-main-subtitle.reveal data-reveal-delay="100"
+        | We are grateful to the organisations and individuals who continue to support our mission to transform agricultural education and training in the Philippines.
+
+  / ── Partner Sections ─────────────────────────────────────────────────────────
+  - @sections.each do |section|
+    section.partners-section
+      .container
+        h2.partners-section-title.reveal = section[:title]
+        .partners-grid
+          - section[:partners].each_with_index do |partner, i|
+            .partner-card.reveal data-reveal-delay="#{i * 80}"
+              .partner-logo-wrap class=("partner-logo-wrap--lg" if partner[:logo_size] == :lg)
+                = image_tag partner[:logo], alt: partner[:name], loading: "lazy"
+              p.partner-name = partner[:name]
+
+  / ── Individual / Group Sponsors ─────────────────────────────────────────────
+  section.partners-section.section-gray
+    .container
+      h2.partners-section-title.reveal Individual / Group Sponsors
+      .row.g-3.justify-content-center
+        - @individual_sponsors.each_with_index do |name, i|
+          .col-6.col-sm-4.col-md-3.reveal data-reveal-delay="#{i * 80}"
+            .individual-sponsor-card = name
+
+  / ── CTA ──────────────────────────────────────────────────────────────────────
+  section.ppafi-cta
+    .container
+      .ppafi-cta-inner.reveal
+        h2.ppafi-cta-title Join Our Network of Sponsors
+        p.ppafi-cta-desc
+          | Partner with us to drive innovation in agricultural education, and training in the Philippines and make a lasting impact on sustainable Dual Agritech™ practices around the world.
+        = link_to "Contact Us to Partner", site_contact_path, class: "btn btn-light fw-semibold px-4 py-2"

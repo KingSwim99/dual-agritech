@@ -1,0 +1,104 @@
+- content_for :title, "Contact | Dual AgriTech™"
+
+div data-controller="scroll-reveal"
+
+  / ── Page Header ─────────────────────────────────────────────────────────────
+  section.contact-header
+    .container.text-center
+      h1.contact-main-title.reveal Get in Touch
+      p.contact-main-subtitle.reveal data-reveal-delay="100"
+        | Ready to partner with us or learn more about our programs? We'd love to hear from you.
+
+  / ── Contact Form ─────────────────────────────────────────────────────────────
+  section.contact-form-section
+    .container
+      .row.justify-content-center
+        .col-lg-8
+          .contact-card.reveal data-reveal-delay="150"
+            h2.contact-card-title Send us a Message
+            = form_with url: site_send_contact_inquiry_path, method: :post, local: true, class: "contact-form", data: { controller: "recaptcha-v3", action: "submit->recaptcha-v3#submit", recaptcha_v3_action_value: "contact" } do |f|
+              .row.g-3
+                .col-12.col-md-6
+                  = f.label :full_name, class: "form-label contact-label" do
+                    | Full Name
+                    span.contact-required *
+                  = f.text_field :full_name, placeholder: "Enter your name", class: "form-control contact-input", required: true
+                .col-12.col-md-6
+                  = f.label :email, class: "form-label contact-label" do
+                    | Email Address
+                    span.contact-required *
+                  = f.email_field :email, placeholder: "Enter your email address", class: "form-control contact-input", required: true
+                .col-12
+                  = f.label :organization, "Organization (Optional)", class: "form-label contact-label"
+                  = f.text_field :organization, placeholder: "Enter your organization name", class: "form-control contact-input"
+                .col-12
+                  = f.label :message, class: "form-label contact-label" do
+                    | Message
+                    span.contact-required *
+                  = f.text_area :message, placeholder: "Tell us about your interest in partnering with us or ask any questions", rows: 5, class: "form-control contact-input", required: true
+                input type="hidden" name="g-recaptcha-response" value=""
+                input type="hidden" name="g-recaptcha-response-data[contact]" value=""
+                .col-12
+                  = f.submit "Send Message", class: "btn contact-submit-btn w-100"
+
+  / ── Contact Info Cards ───────────────────────────────────────────────────────
+  section.contact-info-section
+    .container
+      .row.g-4
+        / Contact Information
+        .col-12.col-md-4
+          .contact-info-card.reveal
+            h3.contact-info-card-title Contact Information
+            .contact-info-item
+              i.bi.bi-geo-alt-fill
+              .contact-info-text
+                | 120 Narra St., Purok 1-8
+                br
+                | Brgy. Dagatan, Lipa City, Batangas
+                br
+                | Philippines 4217
+            .contact-info-item
+              i.bi.bi-telephone-fill
+              .contact-info-text
+                | +63 (045) 540-6194
+                br
+                | +63 (045) 783-5949
+            .contact-info-item
+              i.bi.bi-envelope-fill
+              .contact-info-text inquire.dualagritech@gmail.com
+
+        / Follow Us
+        .col-12.col-md-4
+          .contact-info-card.reveal data-reveal-delay="100"
+            h3.contact-info-card-title Follow Us
+            p.contact-follow-desc
+              | Stay connected with us on social media for the latest updates, student achievements, and agricultural innovations.
+            .contact-social-links
+              a.contact-social-btn.contact-social-btn--facebook href="#" aria-label="Facebook"
+                i.bi.bi-facebook
+                | Facebook
+              a.contact-social-btn.contact-social-btn--youtube href="#" aria-label="YouTube"
+                i.bi.bi-youtube
+                | YouTube
+              a.contact-social-btn.contact-social-btn--instagram href="#" aria-label="Instagram"
+                i.bi.bi-instagram
+                | Instagram
+              a.contact-social-btn.contact-social-btn--linkedin href="#" aria-label="LinkedIn"
+                i.bi.bi-linkedin
+                | LinkedIn
+
+        / Office Hours
+        .col-12.col-md-4
+          .contact-info-card.reveal data-reveal-delay="200"
+            h3.contact-info-card-title Office Hours
+            table.contact-hours-table
+              tbody
+                tr
+                  td Monday - Friday
+                  td.contact-hours-time 8:00 AM - 5:00 PM
+                tr
+                  td Saturday
+                  td.contact-hours-time 8:00 AM - 12:00 NN
+                tr
+                  td Sunday
+                  td.contact-hours-closed Closed

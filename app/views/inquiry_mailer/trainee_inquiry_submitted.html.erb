@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>New Trainee Application</h2>
+    <table cellpadding="6" cellspacing="0" border="1" style="border-collapse:collapse;">
+      <tr><th align="left">First Name</th><td><%= @trainee_inquiry.first_name %></td></tr>
+      <tr><th align="left">Last Name</th><td><%= @trainee_inquiry.last_name %></td></tr>
+      <tr><th align="left">Email</th><td><%= @trainee_inquiry.email %></td></tr>
+      <tr><th align="left">Contact Number</th><td><%= @trainee_inquiry.contact_number %></td></tr>
+      <tr><th align="left">Remarks</th><td style="white-space:pre-wrap;"><%= @trainee_inquiry.remarks.presence || "—" %></td></tr>
+      <tr><th align="left">Submitted At</th><td><%= @trainee_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %></td></tr>
+    </table>
+  </body>
+</html>

@@ -1,0 +1,61 @@
+/ ── Board of Trustees ────────────────────────────────────────────────────────────
+section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Board of Trustees
+    .row.g-4.justify-content-center.mb-4
+      - @trustees.first(4).each_with_index do |person, i|
+        .col-6.col-sm-4.col-md-3.reveal data-reveal-delay="#{i * 100}"
+          .person-card
+            .person-avatar-wrap
+              - if person[:photo]
+                = image_tag person[:photo], class: "person-avatar-img", alt: person[:name]
+              - else
+                span.person-initials = person[:initials]
+            p.person-name = person[:name]
+            p.person-role = person[:role]
+    .row.g-4.justify-content-center
+      - @trustees.last(1).each do |person|
+        .col-6.col-sm-4.col-md-3.reveal
+          .person-card
+            .person-avatar-wrap
+              - if person[:photo]
+                = image_tag person[:photo], class: "person-avatar-img", alt: person[:name]
+              - else
+                span.person-initials = person[:initials]
+            p.person-name = person[:name]
+            p.person-role = person[:role]
+
+/ ── Advisory Council ─────────────────────────────────────────────────────────────
+section.section-white
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Advisory Council
+    .row.g-4.justify-content-center
+      - @advisory_council.each_with_index do |person, i|
+        .col-6.col-sm-4.col-md-3.reveal data-reveal-delay="#{i * 100}"
+          .person-card
+            .person-avatar-wrap
+              - if person[:photo]
+                = image_tag person[:photo], class: "person-avatar-img", alt: person[:name]
+              - else
+                span.person-initials = person[:initials]
+            p.person-name = person[:name]
+            p.person-role = person[:role]
+
+/ ── Key Personnel ────────────────────────────────────────────────────────────────
+section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Key Personnel
+    .row.g-4.justify-content-center
+      - @personnel.each_with_index do |person, i|
+        .col-6.col-sm-4.col-md-3.reveal data-reveal-delay="#{i * 100}"
+          .person-card
+            .person-avatar-wrap
+              - if person[:photo]
+                = image_tag person[:photo], class: "person-avatar-img", alt: person[:name]
+              - else
+                span.person-initials = person[:initials]
+            p.person-name = person[:name]
+            p.person-role = person[:role]

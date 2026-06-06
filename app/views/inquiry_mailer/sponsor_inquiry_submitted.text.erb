@@ -1,0 +1,11 @@
+New Partner / Sponsor Application
+==================================
+
+Name / Company:  <%= @sponsor_inquiry.name %>
+Email:           <%= @sponsor_inquiry.email %>
+Contact Number:  <%= @sponsor_inquiry.contact_number %>
+Donation Type(s):<%= @sponsor_inquiry.donation_type_text.presence || "—" %>
+Submitted At:    <%= @sponsor_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %>
+
+Remarks:
+<%= @sponsor_inquiry.remarks.presence || "—" %>

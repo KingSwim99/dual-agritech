@@ -1,0 +1,75 @@
+/ ─── TVET Programs / Services Section ────────────────────────────────────────
+section.services-section.section-white id="services"
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Our TVET Programs
+      p.section-subtitle
+        | Comprehensive programs and services designed to support dual agritechnology, and community development
+
+    .row.g-4.mb-4
+      - @tvet_programs.first(3).each do |prog|
+        .col-12.col-md-4.reveal
+          .service-card
+            .service-icon
+              i class="bi #{prog[:icon]}"
+            h5.service-title = prog[:title]
+            p.service-desc = prog[:desc]
+            ul.service-list
+              - prog[:items].each do |item|
+                - if item.is_a?(Hash)
+                  li = item[:label]
+                  ul
+                    - item[:children].each do |child|
+                      - if child.is_a?(Hash)
+                        li = child[:label]
+                        ul
+                          - child[:children].each do |grandchild|
+                            li = grandchild
+                      - else
+                        li = child
+                - else
+                  li = item
+
+    .row.g-4.justify-content-center
+      - @tvet_programs.last(2).each do |prog|
+        .col-12.col-md-4.reveal
+          .service-card
+            .service-icon
+              i class="bi #{prog[:icon]}"
+            h5.service-title = prog[:title]
+            p.service-desc = prog[:desc]
+            ul.service-list
+              - prog[:items].each do |item|
+                li = item
+
+    / Why Choose Stats
+    .why-choose-banner.reveal.mt-5
+      .text-center.mb-4
+        h4 Why Choose Our Programs?
+        p.section-subtitle Consistently delivering measurable outcomes for graduates and partner communities.
+      .row.text-center.g-4
+        - @why_choose_stats.each do |stat|
+          .col-6.col-md-3.reveal
+            .stat-item
+              span.stat-number data-target="#{stat[:target]}" 0
+              span.stat-suffix = stat[:suffix]
+              p.stat-label = stat[:label]
+
+    / Curriculum Courses Carousel
+    .curriculum-carousel-section.reveal.mt-5
+      .text-center.mb-4
+        h4.section-title The 6 Curriculum Courses of DualAgritech Program
+        p.section-subtitle Browse through our program brochures for each curriculum course.
+      .brochure-slider data-controller="brochure-carousel"
+        .brochure-track
+          - (1..7).each do |i|
+            .brochure-slide data-brochure-carousel-target="slide"
+              = image_tag "others/brochure/broschure-#{i}.jpg", alt: "Curriculum Course #{i}", loading: "lazy"
+        button.brochure-btn.brochure-btn-prev type="button" aria-label="Previous" data-action="click->brochure-carousel#prev"
+          i.bi.bi-chevron-left
+        button.brochure-btn.brochure-btn-next type="button" aria-label="Next" data-action="click->brochure-carousel#next"
+          i.bi.bi-chevron-right
+        .brochure-indicators
+          - (0..6).each do |i|
+            button.brochure-dot type="button" aria-label="Slide #{i + 1}" data-brochure-carousel-target="indicator" data-action="click->brochure-carousel#goTo" data-index="#{i}"
+

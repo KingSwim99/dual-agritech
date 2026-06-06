@@ -1,0 +1,49 @@
+/ ─── Key Growth Drivers Section ──────────────────────────────────────────────
+section.growth-section.section-white
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Key Growth Drivers
+      p.section-subtitle
+        | Understanding the forces that drive innovation and the challenges we face in transforming agri-tech training
+
+    .row.align-items-center.g-4.mb-5
+      / Left column — icon on left
+      .col-12.col-lg-4
+        - @growth_drivers_left.each do |driver|
+          .growth-item.mb-3.reveal
+            .growth-icon
+              i class="bi #{driver[:icon]}"
+            .growth-body
+              h6.growth-title = driver[:title]
+              p.growth-desc = driver[:desc]
+
+      / Center column — circular image
+      .col-12.col-lg-4.text-center.reveal
+        img.growth-center-image src="https://images.unsplash.com/photo-1619811647569-9bd357bacae5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3Nzg4Nzd8MHwxfHNlYXJjaHwxfHxncmVlbiUyMHBsYW50JTIwZ3Jvd2luZyUyMHNlZWRsaW5nJTIwYWdyaWN1bHR1cmV8ZW58MXx8fHwxNzU2ODg5MTM5fDA&ixlib=rb-4.1.0&q=80&w=1080" alt="Growing plant representing agricultural growth and development"
+
+      / Right column — icon on right
+      .col-12.col-lg-4
+        - @growth_drivers_right.each do |driver|
+          .growth-item.growth-item-right.mb-3.reveal
+            .growth-icon
+              i class="bi #{driver[:icon]}"
+            .growth-body
+              h6.growth-title = driver[:title]
+              p.growth-desc = driver[:desc]
+
+    / Priorities Banner
+    .growth-priorities.reveal
+      .text-center.mb-4
+        p.priorities-label Our Priorities Moving Forward
+        p.priorities-desc
+          | Through strategic partnerships and innovative solutions, we turn challenges into stepping stones for growth
+      .row.text-center.g-4
+        - @priorities_stats.each do |stat|
+          .col-12.col-md-4
+            .stat-item
+              - if stat[:prefix].present?
+                span.stat-prefix = stat[:prefix]
+              span.stat-number data-target="#{stat[:target]}" 0
+              span.stat-suffix = stat[:suffix]
+              p.stat-label = stat[:label]
+

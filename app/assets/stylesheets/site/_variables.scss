@@ -1,0 +1,7 @@
+// ─── Brand Color Palette ─────────────────────────────────────────────────────
+$green-primary: #379946;   // main green
+$green-light:   #a9cf38;   // lime / accent green
+$green-dark:    #0a4d2a;   // dark forest green
+
+// Override Bootstrap's theme color so btn-primary, badges, etc. use brand green
+$primary: $green-primary;

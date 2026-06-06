@@ -1,0 +1,22 @@
+/ ─── Hero Section ────────────────────────────────────────────────────────────
+/ Background set via inline style so Rails asset pipeline resolves the path correctly
+.hero-section style="background-image: url('#{asset_url('others/hero-banner.jpg')}')"
+  .hero-overlay
+  .hero-content.fade-in
+    = image_tag "logos/DA-logo.png", class: "hero-logo", alt: "Dual AgriTech logo"
+    p.hero-tagline
+      em Character through Work
+      br
+      em Per laborem character formatur
+    p.hero-desc
+      | Empowering the next generation of agri technicians and agripreneurs
+      br
+      | through innovative modern agri technology
+    .hero-cta
+      = link_to "Learn More",   site_about_ppafi_path, class: "btn btn-hero-learn"
+      = link_to "Get Involved", site_apply_path,       class: "btn btn-hero-involved"
+    p.hero-accreditation
+      | A program by 
+      strong PPAFI
+      | , accredited by 
+      strong Benevity

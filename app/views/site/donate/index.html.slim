@@ -1,0 +1,75 @@
+- content_for :title, "Donate | Dual AgriTech™"
+
+div data-controller="scroll-reveal"
+
+  / ── Page Header ─────────────────────────────────────────────────────────────
+  section.donate-header
+    .container.text-center
+      h1.donate-main-title.reveal Donation
+      p.donate-main-subtitle.reveal data-reveal-delay="100"
+        | Dual Agritech is a program by PPAFI, accredited by Benevity
+
+  / ── Bank Details + Form ──────────────────────────────────────────────────────
+  section.donate-body
+    .container
+      .row.justify-content-center
+        .col-lg-8
+
+          / Bank Details info box
+          .donate-bank-box.reveal data-reveal-delay="150"
+            .donate-bank-icon
+              i.bi.bi-bank
+            .donate-bank-content
+              p.donate-bank-title Bank Details
+              ul.donate-bank-list
+                li
+                  | Account Name:&nbsp;
+                  strong Pampamilyang Paaralang Agrikultura Foundation Inc. (PPAFI)
+                li
+                  | Bank Name:&nbsp;
+                  strong Bank of the Philippine Islands — Alabang Hills, Muntinlupa City, Philippines
+                li
+                  | Account No:&nbsp;
+                  strong 3421-0228-47
+                li
+                  | BPI swift code:&nbsp;
+                  strong BOPIPHM
+                li
+                  | TIN:&nbsp;
+                  strong 003-485-014-00000
+
+          / Donation Form
+          .donate-form-card.reveal data-reveal-delay="200"
+            h2.donate-form-title Donation Form
+            = form_with url: site_send_donation_inquiry_path, method: :post, local: true, multipart: true, class: "donate-form", data: { controller: "recaptcha-v3", action: "submit->recaptcha-v3#submit", recaptcha_v3_action_value: "donate" } do |f|
+              .row.g-3
+                .col-12.col-md-6
+                  = f.label :full_name, class: "form-label donate-label" do
+                    | Full Name
+                    span.donate-required *
+                  = f.text_field :full_name, placeholder: "Enter your name", class: "form-control donate-input", required: true
+                .col-12.col-md-6
+                  = f.label :email, class: "form-label donate-label" do
+                    | Email Address
+                    span.donate-required *
+                  = f.email_field :email, placeholder: "Enter your email address", class: "form-control donate-input", required: true
+                .col-12.col-md-6
+                  = f.label :contact_number, "Contact Number*", class: "form-label donate-label"
+                  = f.telephone_field :contact_number, placeholder: "Enter your contact number", class: "form-control donate-input", required: true
+                .col-12.col-md-6
+                  = f.label :organization, "Organization Name", class: "form-label donate-label"
+                  = f.text_field :organization, placeholder: "Enter your organization name", class: "form-control donate-input"
+                .col-12
+                  = f.label :proof_of_donation, class: "form-label donate-label" do
+                    | Proof of Donation
+                    span.donate-required *
+                  = f.file_field :proof_of_donation, class: "form-control donate-input", required: true
+                .col-12
+                  = f.label :message, class: "form-label donate-label" do
+                    | Message
+                    span.donate-required *
+                  = f.text_area :message, placeholder: "Tell us about your donation or include details", rows: 5, class: "form-control donate-input", required: true
+                input type="hidden" name="g-recaptcha-response" value=""
+                input type="hidden" name="g-recaptcha-response-data[donate]" value=""
+                .col-12
+                  = f.submit "Submit Donation", class: "btn donate-submit-btn w-100"

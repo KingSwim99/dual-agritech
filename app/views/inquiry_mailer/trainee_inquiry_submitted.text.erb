@@ -1,0 +1,11 @@
+New Trainee Application
+=======================
+
+First Name:     <%= @trainee_inquiry.first_name %>
+Last Name:      <%= @trainee_inquiry.last_name %>
+Email:          <%= @trainee_inquiry.email %>
+Contact Number: <%= @trainee_inquiry.contact_number %>
+Submitted At:   <%= @trainee_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %>
+
+Remarks:
+<%= @trainee_inquiry.remarks.presence || "—" %>

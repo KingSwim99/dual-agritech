@@ -1,0 +1,23 @@
+/ ── Vision, Mission & Character ─────────────────────────────────────────────────
+section.section-gray
+  .container
+    .row.g-4.mb-4
+      .col-12.col-md-6.reveal
+        .ppafi-info-card
+          .ppafi-info-icon
+            i.bi.bi-eye-fill
+          p.ppafi-info-title Our Vision
+          p.ppafi-info-text = @vision
+      .col-12.col-md-6.reveal data-reveal-delay="150"
+        .ppafi-info-card
+          .ppafi-info-icon
+            i.bi.bi-bullseye
+          p.ppafi-info-title Our Mission
+          p.ppafi-info-text = @mission
+    .row.reveal
+      .col-12
+        .ppafi-info-card.text-center
+          .ppafi-info-icon.mx-auto
+            i.bi.bi-star-fill
+          p.ppafi-info-title Character and Values Formation
+          p.ppafi-info-text = @character_values

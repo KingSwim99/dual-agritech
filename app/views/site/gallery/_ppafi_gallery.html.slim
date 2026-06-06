@@ -1,0 +1,15 @@
+/ ── PPAFI Gallery Panel ────────────────────────────────────────────────────────
+section.gallery-panel data-tab="ppafi"
+  .container
+    .text-center.mb-4
+      h2.gallery-section-title.gallery-fade PPAFI Gallery
+      p.gallery-section-subtitle.text-muted.gallery-fade Explore the foundation's impactful outreach programs.
+    .gallery-grid#ppafi-grid
+      - @ppafi_images.each_with_index do |img, i|
+        .gallery-thumb.gallery-fade class=("gallery-hidden" if i >= 20) data-action="click->gallery#open" data-caption="#{img[:description]}"
+          = image_tag img[:path], alt: img[:description].to_s, loading: "lazy"
+    - if @ppafi_images.length > 20
+      .text-center.mt-4
+        button.btn.btn-outline-success.btn-gallery-more.gallery-fade data-action="click->gallery#expand" data-grid-id="ppafi-grid" data-limit="20"
+          span.more-label View More Photos
+          span.less-label.d-none View Less Photos

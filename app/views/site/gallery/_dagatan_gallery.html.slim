@@ -1,0 +1,19 @@
+/ ── DFFSI / BFFSI Gallery Panel ───────────────────────────────────────────────
+section.gallery-panel.d-none data-tab="dffsi"
+  .container
+    .text-center.mb-5
+      h2.gallery-section-title.gallery-fade Dual Agritech Gallery
+      p.gallery-section-subtitle.text-muted.gallery-fade
+        | Discover the innovative TVET learning methods at Dagatan and Balete Family Farm Schools.
+    - @dagatan_groups.each_with_index do |group, gi|
+      .gallery-category
+        h4.gallery-category-title.gallery-fade = group[:name]
+        .gallery-grid id="dagatan-grid-#{gi}"
+          - group[:images].each_with_index do |img, i|
+            .gallery-thumb.gallery-fade class=("gallery-hidden" if i >= 5) data-action="click->gallery#open"
+              = image_tag "#{group[:folder]}/#{img}", alt: group[:name], loading: "lazy"
+        - if group[:images].length > 5
+          .text-center.mt-3.mb-4
+            button.btn.btn-outline-success.btn-sm.btn-gallery-more.gallery-fade data-action="click->gallery#expand" data-grid-id="dagatan-grid-#{gi}" data-limit="5"
+              span.more-label See More Photos
+              span.less-label.d-none See Less Photos

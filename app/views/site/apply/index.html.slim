@@ -1,0 +1,126 @@
+- content_for :title, "Apply | Dual AgriTech™"
+
+div data-controller="scroll-reveal"
+
+  / ── Page Header ─────────────────────────────────────────────────────────────
+  section.apply-header
+    .container.text-center
+      h1.apply-main-title.reveal Join Our Mission
+      p.apply-main-subtitle.reveal data-reveal-delay="100"
+        | We invite you to contribute to our vision or grow with our programs.
+
+  / ── Tab Switcher + Forms ─────────────────────────────────────────────────────
+  section.apply-body
+    .container
+      .row.justify-content-center
+        .col-lg-8
+
+          div data-controller="apply-tabs"
+
+            / Tab bar
+            .apply-tab-bar.reveal data-reveal-delay="150"
+              button.apply-tab-btn data-tab="sponsor" data-apply-tabs-target="tab" data-action="click->apply-tabs#switch"
+                | Be a Sponsor/Partner
+              button.apply-tab-btn data-tab="trainee" data-apply-tabs-target="tab" data-action="click->apply-tabs#switch"
+                | Be a Trainee
+
+            / ── Sponsor / Partner Panel ───────────────────────────────────────
+            div data-apply-tabs-target="panel" data-panel="sponsor"
+              .apply-form-card.reveal data-reveal-delay="200"
+                h2.apply-form-title Scholarship Sponsor/OJT Partner Application
+                = form_with url: site_send_sponsor_inquiry_path, method: :post, local: true, class: "apply-form", data: { controller: "recaptcha-v3", action: "submit->recaptcha-v3#submit", recaptcha_v3_action_value: "sponsor" } do |f|
+                  .row.g-3
+                    .col-12
+                      = f.label :name, class: "form-label apply-label" do
+                        | Name, Company or Individual
+                        span.apply-required *
+                      = f.text_field :name, placeholder: "Enter your name or company name", class: "form-control apply-input", required: true
+                    .col-12
+                      p.form-label.apply-label.mb-2
+                        | Donation Type
+                        span.apply-required *
+                      .apply-checkbox-grid
+                        .form-check
+                          = f.check_box :donation_type_scholarship, class: "form-check-input"
+                          = f.label :donation_type_scholarship, "Scholarship", class: "form-check-label"
+                        .form-check
+                          = f.check_box :donation_type_farm_equipment, class: "form-check-input"
+                          = f.label :donation_type_farm_equipment, "Farm Equipment", class: "form-check-label"
+                        .form-check
+                          = f.check_box :donation_type_classroom, class: "form-check-input"
+                          = f.label :donation_type_classroom, "Classroom/Dormitory/Laboratory", class: "form-check-label"
+                        .form-check
+                          = f.check_box :donation_type_technology, class: "form-check-input"
+                          = f.label :donation_type_technology, "Technology Modules", class: "form-check-label"
+                        .form-check
+                          = f.check_box :donation_type_ojt, class: "form-check-input"
+                          = f.label :donation_type_ojt, "OJT Partner Application", class: "form-check-label"
+                    .col-12.col-md-6
+                      = f.label :email, class: "form-label apply-label" do
+                        | Email
+                        span.apply-required *
+                      = f.email_field :email, placeholder: "Enter your email address", class: "form-control apply-input", required: true
+                    .col-12.col-md-6
+                      = f.label :contact_number, class: "form-label apply-label" do
+                        | Contact Number
+                        span.apply-required *
+                      = f.telephone_field :contact_number, placeholder: "Enter your contact number", class: "form-control apply-input", required: true
+                    .col-12
+                      = f.label :remarks, "Remarks", class: "form-label apply-label"
+                      = f.text_area :remarks, placeholder: "Any additional information or questions", rows: 4, class: "form-control apply-input"
+                    input type="hidden" name="g-recaptcha-response" value=""
+                    input type="hidden" name="g-recaptcha-response-data[sponsor]" value=""
+                    .col-12
+                      = f.submit "Submit Application", class: "btn apply-submit-btn w-100"
+
+            / ── Trainee Panel ─────────────────────────────────────────────────
+            div data-apply-tabs-target="panel" data-panel="trainee"
+              .apply-form-card.reveal data-reveal-delay="200"
+                h2.apply-form-title Trainee Application
+                .apply-requirements-box
+                  .apply-requirements-icon
+                    i.bi.bi-info-circle-fill
+                  .apply-requirements-content
+                    p.apply-requirements-title Requirements:
+                    ul.apply-requirements-list
+                      li Must be 18-35 years old
+                      li Grade 10 completer or Senior High School Graduate
+                      li Basic agricultural knowledge is an advantage
+                      li Applicants must demonstrate a strong passion for agriculture and technology
+                      li Commitment to 10-month program required
+                      li Residency within Batangas, Laguna, Cavite, or Quezon is highly preferred
+                = form_with url: site_send_trainee_inquiry_path, method: :post, local: true, class: "apply-form mt-4", data: { controller: "recaptcha-v3", action: "submit->recaptcha-v3#submit", recaptcha_v3_action_value: "trainee" } do |f|
+                  .row.g-3
+                    .col-12.col-md-6
+                      = f.label :first_name, class: "form-label apply-label" do
+                        | First Name
+                        span.apply-required *
+                      = f.text_field :first_name, placeholder: "Enter your first name", class: "form-control apply-input", required: true
+                    .col-12.col-md-6
+                      = f.label :last_name, class: "form-label apply-label" do
+                        | Last Name
+                        span.apply-required *
+                      = f.text_field :last_name, placeholder: "Enter your last name", class: "form-control apply-input", required: true
+                    .col-12.col-md-6
+                      = f.label :email, class: "form-label apply-label" do
+                        | Email
+                        span.apply-required *
+                      = f.email_field :email, placeholder: "Enter your email address", class: "form-control apply-input", required: true
+                    .col-12.col-md-6
+                      = f.label :contact_number, class: "form-label apply-label" do
+                        | Contact Number
+                        span.apply-required *
+                      = f.telephone_field :contact_number, placeholder: "Enter your contact number", class: "form-control apply-input", required: true
+                    .col-12
+                      = f.label :remarks, "Remarks", class: "form-label apply-label"
+                      = f.text_area :remarks, placeholder: "Any additional information or questions", rows: 4, class: "form-control apply-input"
+                    input type="hidden" name="g-recaptcha-response" value=""
+                    input type="hidden" name="g-recaptcha-response-data[trainee]" value=""
+                    .col-12
+                      = f.submit "Submit Application", class: "btn apply-submit-btn w-100"
+
+  / ── CTA ─────────────────────────────────────────────────────────────────────
+  section.apply-cta
+    .container.text-center.reveal
+      h2.apply-cta-title Have Questions About Applying? Contact Us!
+      = link_to "Get in Touch", site_contact_path, class: "btn apply-cta-btn"

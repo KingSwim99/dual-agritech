@@ -1,0 +1,10 @@
+New Contact Inquiry
+===================
+
+Name:         <%= @contact_inquiry.name %>
+Email:        <%= @contact_inquiry.email %>
+Organization: <%= @contact_inquiry.organization.presence || "—" %>
+Submitted At: <%= @contact_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %>
+
+Message:
+<%= @contact_inquiry.message %>

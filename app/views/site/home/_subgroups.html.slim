@@ -1,0 +1,20 @@
+/ ─── Subgroups Section ───────────────────────────────────────────────────────
+section.subgroups-section.section-white
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Dual Agritech™ Training Centers for Excellence
+      p.section-subtitle
+        | We operate specialized training centers in partnership with industry and government for centers of excellence.
+
+    .row.g-4
+      - @subgroups.each_with_index do |sg, i|
+        .col-12.col-md-4.reveal data-reveal-delay="#{i * 120}"
+          .subgroup-card
+            .subgroup-img-wrap
+              = image_tag sg[:image], class: "subgroup-img", alt: sg[:alt]
+            .subgroup-body
+              h5.subgroup-name = sg[:name]
+              p.subgroup-tagline = sg[:tagline]
+              p.subgroup-desc = sg[:desc]
+              = link_to "Learn More →", send(sg[:path]), class: "subgroup-link"
+

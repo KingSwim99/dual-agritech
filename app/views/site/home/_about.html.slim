@@ -1,0 +1,26 @@
+/ ─── About Dual AgriTech Section ─────────────────────────────────────────────
+section.about-section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title About Dual Agritech™
+    .row.align-items-center.g-5
+      .col-12.col-lg-6.reveal
+        h4.about-subtitle Strategic Shift to Dual AgriTech™ Training
+        p.about-text
+          | Dual Agritech™ is a Technical-Vocational Education and Training (TVET) program under the supervision of the Technical Education and Skills Development Authority (TESDA) which aims to provide practical skills and knowledge for specific occupations. Our mission is to empower the next generation of agri technicians and agripreneurs.
+        p.about-text
+          | Through our three specialized institutions - PPAFI, DFFSI, and BFFSI - we provide comprehensive tech-voc programs that prepare trainees for successful careers in modern, sustainable agri technology innovation.
+
+        h5.about-objectives-title Our Key Objectives
+        .row.g-3.mt-1
+          - @about_objectives.each do |obj|
+            .col-6.col-md-3.reveal
+              .objective-card
+                .objective-icon
+                  i class="bi #{obj[:icon]}"
+                p.objective-label = obj[:label]
+
+      .col-12.col-lg-6.reveal
+        .about-video-wrap
+          iframe.about-video width="100%" height="360" src="https://www.youtube.com/embed/Zag52HSd7Po?si=7mgQdrlabB-MSkwI" title="About Dual AgriTech" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen=""
+

@@ -1,0 +1,213 @@
+// ─── Contact Page ─────────────────────────────────────────────────────────────
+
+// ── Header ────────────────────────────────────────────────────────────────────
+.contact-header {
+  background: #f7faf7;
+  padding: 60px 0 40px;
+  text-align: center;
+  border-bottom: 1px solid rgba($green-primary, 0.12);
+}
+
+.contact-main-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 0.5rem;
+}
+
+.contact-main-subtitle {
+  font-size: clamp(1.05rem, 1.7vw, 1.25rem);
+  color: #5a6a5a;
+  max-width: 580px;
+  margin: 0 auto;
+}
+
+// ── Form Section ──────────────────────────────────────────────────────────────
+.contact-form-section {
+  padding: 60px 0 40px;
+}
+
+.contact-card {
+  background: #fff;
+  border: 1px solid rgba($green-primary, 0.12);
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  box-shadow: 0 4px 24px rgba(0, 0, 0, 0.06);
+}
+
+.contact-card-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2vw, 1.6rem);
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 1.5rem;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #2e3d2e;
+  font-size: 0.95rem;
+  margin-bottom: 0.4rem;
+}
+
+.contact-required {
+  color: #dc3545;
+  margin-left: 2px;
+}
+
+.contact-input {
+  border: 1px solid #d0ddd0;
+  border-radius: 8px;
+  padding: 0.6rem 0.9rem;
+  font-size: 0.97rem;
+  color: #2e3d2e;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+
+  &::placeholder {
+    color: #aabcaa;
+  }
+
+  &:focus {
+    border-color: $green-primary;
+    box-shadow: 0 0 0 3px rgba($green-primary, 0.15);
+    outline: none;
+  }
+}
+
+.contact-submit-btn {
+  background: $green-primary;
+  color: #fff;
+  font-weight: 600;
+  font-size: 1rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 8px;
+  border: none;
+  transition: background 0.2s ease;
+
+  &:hover,
+  &:focus {
+    background: darken($green-primary, 8%);
+    color: #fff;
+  }
+}
+
+// ── Info Cards Section ────────────────────────────────────────────────────────
+.contact-info-section {
+  padding: 40px 0 70px;
+}
+
+.contact-info-card {
+  background: #fff;
+  border: 1px solid rgba($green-primary, 0.12);
+  border-radius: 16px;
+  padding: 2rem 1.75rem;
+  height: 100%;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.contact-info-card-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: $green-primary;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0.6rem;
+  border-bottom: 2px solid rgba($green-primary, 0.15);
+}
+
+// ── Contact Info Items ────────────────────────────────────────────────────────
+.contact-info-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.75rem;
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+  color: #3a4a3a;
+  line-height: 1.6;
+
+  i {
+    color: $green-primary;
+    font-size: 1.1rem;
+    margin-top: 0.15rem;
+    flex-shrink: 0;
+  }
+}
+
+.contact-info-text {
+  flex: 1;
+}
+
+// ── Social Buttons ────────────────────────────────────────────────────────────
+.contact-follow-desc {
+  font-size: 0.93rem;
+  color: #5a6a5a;
+  line-height: 1.6;
+  margin-bottom: 1.25rem;
+}
+
+.contact-social-links {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.6rem;
+}
+
+// Brand colors
+$facebook-color:  #1877f2;
+$youtube-color:   #ff0000;
+$instagram-color: #e1306c;
+$linkedin-color:  #0a66c2;
+
+.contact-social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: 1px solid currentColor;
+  border-radius: 8px;
+  padding: 0.5rem 0.85rem;
+  font-size: 0.9rem;
+  font-weight: 500;
+  text-decoration: none;
+  transition: background 0.2s ease, opacity 0.2s ease;
+
+  i { font-size: 1.05rem; }
+
+  &:hover { opacity: 0.82; }
+
+  &--facebook  { color: $facebook-color;  background: rgba($facebook-color,  0.07); }
+  &--youtube   { color: $youtube-color;   background: rgba($youtube-color,   0.07); }
+  &--instagram { color: $instagram-color; background: rgba($instagram-color, 0.07); }
+  &--linkedin  { color: $linkedin-color;  background: rgba($linkedin-color,  0.07); }
+}
+
+// ── Office Hours Table ────────────────────────────────────────────────────────
+.contact-hours-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+
+  td {
+    padding: 0.55rem 0;
+    border-bottom: 1px solid rgba($green-primary, 0.08);
+    color: #3a4a3a;
+    vertical-align: middle;
+
+    &:first-child {
+      width: 55%;
+    }
+  }
+
+  tr:last-child td {
+    border-bottom: none;
+  }
+}
+
+.contact-hours-time {
+  font-weight: 700;
+  color: $green-dark;
+}
+
+.contact-hours-closed {
+  font-weight: 700;
+  color: #c0392b;
+}

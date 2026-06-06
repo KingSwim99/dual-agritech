@@ -1,0 +1,33 @@
+// ─── Resources Page ──────────────────────────────────────────────────────────
+
+// Word icon color — no existing utility maps to Microsoft Word blue
+.icon-word,
+h1 .icon-word,
+h2 .icon-word,
+h3 .icon-word,
+h4 .icon-word {
+  color: #2B579A !important;
+}
+
+// File-type outline buttons
+.btn-outline-pdf {
+  color: #B30B00;
+  border-color: #B30B00;
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+    background-color: #B30B00;
+    border-color: #B30B00;
+  }
+}
+
+.btn-outline-word {
+  color: #2B579A;
+  border-color: #2B579A;
+
+  &:hover, &:focus, &:active {
+    color: #fff;
+    background-color: #2B579A;
+    border-color: #2B579A;
+  }
+}

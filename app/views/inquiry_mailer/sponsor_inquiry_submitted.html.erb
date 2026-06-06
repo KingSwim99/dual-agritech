@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html>
+  <body>
+    <h2>New Partner / Sponsor Application</h2>
+    <table cellpadding="6" cellspacing="0" border="1" style="border-collapse:collapse;">
+      <tr><th align="left">Name / Company</th><td><%= @sponsor_inquiry.name %></td></tr>
+      <tr><th align="left">Email</th><td><%= @sponsor_inquiry.email %></td></tr>
+      <tr><th align="left">Contact Number</th><td><%= @sponsor_inquiry.contact_number %></td></tr>
+      <tr><th align="left">Donation Type(s)</th><td><%= @sponsor_inquiry.donation_type_text.presence || "—" %></td></tr>
+      <tr><th align="left">Remarks</th><td style="white-space:pre-wrap;"><%= @sponsor_inquiry.remarks.presence || "—" %></td></tr>
+      <tr><th align="left">Submitted At</th><td><%= @sponsor_inquiry.created_at.strftime("%B %d, %Y %I:%M %p UTC") %></td></tr>
+    </table>
+  </body>
+</html>

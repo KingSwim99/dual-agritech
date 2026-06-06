@@ -1,0 +1,16 @@
+/ ── Our History ──────────────────────────────────────────────────────────────────
+section.section-gray
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Our History
+      p.section-subtitle.text-ppafi-accent The Foundation of BFFSI
+    .timeline
+      - @history.each do |item|
+        .timeline-item.reveal class=(item[:side] == :left ? "timeline-left" : "timeline-right")
+          .tl-card
+            - if item[:year]
+              span.timeline-year = item[:year]
+            h5.timeline-title = item[:title]
+            p.timeline-desc = item[:desc]
+          .tl-node
+            i class="bi #{item[:icon]}"

@@ -1,0 +1,12 @@
+/ ── Core Values ──────────────────────────────────────────────────────────────────
+section.section-white
+  .container
+    .text-center.mb-5.reveal
+      h2.section-title Our Core Values
+    .row.g-4.justify-content-center
+      - @core_values.each_with_index do |val, i|
+        .col-6.col-sm-4.col-lg-2.reveal data-reveal-delay="#{i * 100}"
+          .value-card
+            .value-icon
+              i class="bi #{val[:icon]}"
+            p.value-label = val[:label]

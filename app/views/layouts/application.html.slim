@@ -1,0 +1,36 @@
+doctype html
+html
+  head
+    title = content_for(:title) || "Dual AgriTech"
+    meta name="viewport" content="width=device-width,initial-scale=1"
+    meta name="apple-mobile-web-app-capable" content="yes"
+    meta name="application-name" content="Dual AgriTech"
+    meta name="mobile-web-app-capable" content="yes"
+    = csrf_meta_tags
+    = csp_meta_tag
+    = yield :head
+    / Enable PWA manifest: = tag.link rel: "manifest", href: pwa_manifest_path(format: :json)
+    = favicon_link_tag "logos/DA-logo-letter.png", rel: "icon", type: "image/png"
+    = favicon_link_tag "logos/DA-logo-letter.png", rel: "apple-touch-icon"
+    link rel="preconnect" href="https://fonts.googleapis.com"
+    link rel="preconnect" href="https://fonts.gstatic.com" crossorigin=""
+    link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Poppins:wght@600;700;800&display=swap"
+    = stylesheet_link_tag :app, "data-turbo-track": "reload"
+    link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css"
+    = javascript_importmap_tags
+    - if Recaptcha.configuration.site_key.present?
+      meta name="recaptcha-site-key" content=Recaptcha.configuration.site_key
+      script src="https://www.google.com/recaptcha/api.js?render=#{Recaptcha.configuration.site_key}" async="" defer=""
+  body.d-flex.flex-column.min-vh-100
+    = render "shared/navbar"
+    main.flex-grow-1 data-controller="scroll-reveal"
+      - if notice.present?
+        .alert.alert-success.alert-dismissible.fade.show.rounded-0.mb-0 role="alert"
+          = notice
+          button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+      - if alert.present?
+        .alert.alert-danger.alert-dismissible.fade.show.rounded-0.mb-0 role="alert"
+          = alert
+          button.btn-close type="button" data-bs-dismiss="alert" aria-label="Close"
+      = yield
+    = render "shared/footer"

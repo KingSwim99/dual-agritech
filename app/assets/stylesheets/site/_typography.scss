@@ -1,0 +1,138 @@
+// ─── Typography ───────────────────────────────────────────────────────────────
+// Fonts loaded via <link> in layout head (see application.html.slim)
+// Headings: Poppins — geometric sans-serif, clean and highly readable
+// Body: Inter — clean, modern, highly legible sans-serif
+
+// ── Base ──────────────────────────────────────────────────────────────────────
+body {
+  font-family: "Inter", system-ui, -apple-system, sans-serif;
+  font-size: 1.25rem;
+  line-height: 1.85;
+  color: #2a3a2a;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+// ── Headings ──────────────────────────────────────────────────────────────────
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-weight: 700;
+  line-height: 1.2;
+  color: $green-dark;
+  letter-spacing: -0.01em;
+}
+
+// ── Fluid Section Titles ──────────────────────────────────────────────────────
+// clamp(min, preferred, max) — scales smoothly between breakpoints
+.section-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(2.4rem, 4vw, 3.5rem);
+  font-weight: 700;
+  color: $green-dark;
+  margin-bottom: 0.85rem;
+  line-height: 1.15;
+}
+
+.section-subtitle {
+  font-size: clamp(1.25rem, 2.2vw, 1.55rem);
+  color: #516051;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.8;
+  font-weight: 400;
+}
+
+// ── Card / Component Titles ───────────────────────────────────────────────────
+.subgroup-name,
+.model-card-title,
+.service-title,
+.growth-title,
+.about-subtitle,
+.cta-bottom-title,
+.impact-title {
+  font-family: "Poppins", system-ui, sans-serif;
+}
+
+.subgroup-name      { font-size: clamp(1.4rem, 2.2vw, 1.7rem); }
+.model-card-title   { font-size: clamp(1.5rem, 2.4vw, 1.9rem); }
+.service-title      { font-size: clamp(1.35rem, 2vw, 1.65rem); }
+.growth-title       { font-size: clamp(1.2rem, 1.8vw, 1.45rem); font-weight: 700; }
+.about-subtitle     { font-size: clamp(1.5rem, 2.5vw, 1.85rem); }
+.cta-bottom-title   { font-size: clamp(1.6rem, 2.8vw, 2.1rem); }
+.impact-title       { font-size: clamp(1.6rem, 2.6vw, 2rem); }
+
+// ── Body / Descriptive Text ───────────────────────────────────────────────────
+.subgroup-tagline   { font-size: clamp(1rem, 1.6vw, 1.15rem); letter-spacing: 0.04em; }
+.subgroup-desc,
+.model-card-desc,
+.service-desc,
+.growth-desc,
+.about-text,
+.cta-subtitle,
+.cta-bottom-desc,
+.cta-info-text,
+.priorities-desc    { font-size: clamp(1.15rem, 1.8vw, 1.35rem); line-height: 1.8; }
+
+.testimonial-text   { font-size: clamp(1.1rem, 1.8vw, 1.3rem); line-height: 1.85; }
+.service-list       { font-size: clamp(1.05rem, 1.6vw, 1.25rem); line-height: 2.1; }
+
+// ── Stat Numbers ──────────────────────────────────────────────────────────────
+.stat-number {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(2.5rem, 4.5vw, 3.8rem);
+  font-weight: 700;
+  color: $green-dark;
+  line-height: 1;
+}
+
+.stat-suffix {
+  font-size: clamp(1.5rem, 2.5vw, 2.1rem);
+  font-weight: 700;
+  color: $green-primary;
+}
+
+.stat-label {
+  font-size: clamp(0.9rem, 1.4vw, 1.05rem);
+  color: #516051;
+  margin-top: 0.4rem;
+  font-weight: 500;
+  letter-spacing: 0.02em;
+  text-transform: uppercase;
+}
+
+// ── CTA Section Text ──────────────────────────────────────────────────────────
+.cta-title {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(2.1rem, 3.6vw, 3.2rem);
+  font-weight: 800;
+  color: #fff;
+  line-height: 1.25;
+}
+
+.cta-info-title  { font-size: clamp(1.15rem, 1.8vw, 1.35rem); }
+.priorities-label {
+  font-family: "Poppins", system-ui, sans-serif;
+  font-size: clamp(1.3rem, 2.2vw, 1.6rem);
+  font-weight: 700;
+  color: $green-dark;
+}
+
+// ── Testimonial Author ────────────────────────────────────────────────────────
+.testimonial-info {
+  strong { font-size: clamp(1.15rem, 1.8vw, 1.3rem); }
+  span   { font-size: clamp(1rem, 1.5vw, 1.1rem); }
+}
+
+// ── Objective Labels ──────────────────────────────────────────────────────────
+.objective-label {
+  font-size: clamp(1rem, 1.5vw, 1.15rem);
+  font-weight: 600;
+  line-height: 1.45;
+}
+
+// ── Navbar & Footer inherit Inter ─────────────────────────────────────────────
+.site-navbar .nav-link,
+.site-navbar .btn-donate-now,
+.site-navbar .btn-apply-now {
+  font-family: "Inter", system-ui, sans-serif;
+}
