@@ -58,7 +58,7 @@ Rails.application.configure do
   # config.action_mailer.raise_delivery_errors = false
 
   # Set host to be used by links generated in mailer templates.
-  config.action_mailer.default_url_options = { host: "dual-agritech-staging.herokuapp.com", protocol: "https" }
+  config.action_mailer.default_url_options = { host: ENV.fetch("APP_HOST", "dual-agritech-production.herokuapp.com"), protocol: "https" }
 
   # Mailtrap SMTP.
   config.action_mailer.delivery_method = :smtp
