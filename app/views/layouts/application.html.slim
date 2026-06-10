@@ -20,7 +20,7 @@ html
     = javascript_importmap_tags
     - if Recaptcha.configuration.site_key.present?
       meta name="recaptcha-site-key" content=Recaptcha.configuration.site_key
-      script src="https://www.google.com/recaptcha/api.js?render=#{Recaptcha.configuration.site_key}" async="" defer="" data-turbo-track="reload"
+      script src="https://www.google.com/recaptcha/api.js?render=#{Recaptcha.configuration.site_key}" async="" defer=""
   body.d-flex.flex-column.min-vh-100
     = render "shared/navbar"
     main.flex-grow-1 data-controller="scroll-reveal"
