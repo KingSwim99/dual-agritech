@@ -7,7 +7,8 @@ module Site
       20 => "With Regional Vicar Father Julio Dieguez",
       21 => "Sunjin Deployment",
       22 => "Sunjin Deployment",
-      23 => "Sealed the OJT partnership with Tony Magno - Father of Tunnel Ventilation Poultry Farming."
+      23 => "Sealed the OJT partnership with Tony Magno - Father of Tunnel Ventilation Poultry Farming.",
+      24 => "BOT PPAFI meeting with FEU Cavite Officials @ Dagatan Training Site"
     }.freeze
 
     def index
