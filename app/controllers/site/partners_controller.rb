@@ -58,9 +58,9 @@ module Site
       ]
 
       @individual_sponsors = [
-        "De La Salle Lipa Alumni Association (Batch 87)",
-        "Mar Roxas",
-        "Porfino A. Yusingco, Jr.",
+        "De La Salle Lipa Alumni Association (Batch 82)",
+        "Mar Rustia",
+        "Porfirio A. Yusingco, Jr.",
         "Art Fajardo",
         "Ed Tabong Fair",
         "Maria Theresa M. CU",
